@@ -1,0 +1,70 @@
+{
+    "main_tenant": {
+        "firstname": {
+            "keyword": "FIRSTNAME_MAIN_TENANT",
+            "value": "Max"
+        },
+        "lastname": {
+            "keyword": "SURNAME_MAIN_TENANT",
+            "value": "Mustermann"
+        },
+        "street": {
+            "keyword": "STREET_MAIN_TENANT",
+            "value": "Bienenallee"
+        },
+        "house_number": {
+            "keyword": "HOUSENUMBER_MAIN_TENANT",
+            "value": "72"
+        },
+        "postcode": {
+            "keyword": "POSTCODE_MAIN_TENANT",
+            "value": "01085"
+        },
+        "city": {
+            "keyword": "CITY_MAIN_TENANT",
+            "value": "Bremen"
+        }
+    },
+    "flatmate": {
+        "firstname": {
+            "keyword": "FIRSTNAME",
+            "value": "Lisa"
+        },
+        "lastname": {
+            "keyword": "Mustermann",
+            "value": "Musterfrau"
+        },
+        "move_in_date": {
+            "keyword": "MOVE_IN_DATE",
+            "value": "2023-01-18"
+        }
+    },
+    "flat": {
+        "street": {
+            "keyword": "FLAT_STREET",
+            "value": "Wunderallee"
+        },
+        "house_number": {
+            "keyword": "FLAT_HOUSENUMBER",
+            "value": "42"
+        },
+        "postcode": {
+            "keyword": "FLAT_POSTCODE",
+            "value": "07899"
+        },
+        "city": {
+            "keyword": "FLAT_CITY",
+            "value": "Traumstadt"
+        },
+        "floor": {
+            "keyword": "FLOOR",
+            "value": "1.OG"
+        }
+    },
+    "owner": {
+        "name": {
+            "keyword": "FLAT_OWNER",
+            "value": "Vonovia"
+        }
+    }
+}

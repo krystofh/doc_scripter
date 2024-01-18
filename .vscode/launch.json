@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "fl2",
+            "type": "python",
+            "request": "launch",
+            "program": "confirm_flatmate.py",
+            "args": [
+                "vetfluidlab2_CertificateofAnalysis_Template.docx",
+                "config.json"
+            ]
+        },
+        {
+            "name": "wohnung",
+            "type": "python",
+            "request": "launch",
+            "program": "confirm_flatmate.py",
+            "args": [
+                "wohnungsgeber.docx",
+                "config.json"
+            ]
+        }
+    ]
+}
