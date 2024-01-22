@@ -39,29 +39,11 @@ def print_rows(doc, table_number: int):
         print(row.cells[0].text)
 
 
-def get_run_properties(run):
-    return (
-        run.bold,
-        run.italic,
-        run.underline,
-        # run.font.color,
-        run.font.size,
-        run.font.name,
-    )
+def check_keyword(config_data: dict, keyword: str):
+    pass
 
 
-def apply_run_properties(run, properties):
-    (
-        run.bold,
-        run.italic,
-        run.underline,
-        # run.font.color,
-        run.font.size,
-        run.font.name,
-    ) = properties
-
-
-def replace_keywords(doc, config_data, mode="table"):
+def replace_keywords(doc, config_data: dict, mode="table"):
     if mode == "paragraph":
         pass
     elif mode == "table":
@@ -77,17 +59,18 @@ def replace_keywords(doc, config_data, mode="table"):
                 keyword = config_data[obj][obj_property]["keyword"]
                 value = config_data[obj][obj_property]["value"]
                 print(f"Looking for {keyword}: {value}")
-            # Look in each table
-            # for table in doc.tables:
-            #     for row in table.rows:
-            #         for cell in row.cells:
-            #             # Each cell can have multiple paragraphs with different formatting
-            #             # In order not to overwrite formatting, edit the paragraphs, not entire cell
-            #             for cell_paragraph in cell.paragraphs:
-            #                 if key in cell_paragraph.text:
-            #                     cell_paragraph.text = cell_paragraph.text.replace(
-            #                         key, str(value)
-            #                     )
+
+        # Look in each table
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    # Each cell can have multiple paragraphs with different formatting
+                    # In order not to overwrite formatting, edit the paragraphs, not entire cell
+                    for cell_paragraph in cell.paragraphs:
+                        if key in cell_paragraph.text:
+                            cell_paragraph.text = cell_paragraph.text.replace(
+                                key, str(value)
+                            )
     else:
         raise AttributeError("Unsopported operation mode for keyword search")
 

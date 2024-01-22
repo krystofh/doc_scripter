@@ -4,9 +4,13 @@ Scripted editing of Word documents with some examples providing a re-usable temp
 The motivation is to be able to create a template document in Word with defined formatting and then be able to programatically 
 edit its content to produce new documents. 
 
-The provided example `confirm_flatmate.py` serves the purpose of generating "Wohnungsgeberbestätigung" - a form needed in Germany to confirm sub-lease a room in a shared flat.
+The provided example `confirm_flatmate.py` serves the purpose of generating "*Wohnungsgeberbestätigung*" - a form needed in Germany to confirm sub-lease a room in a shared flat.
 
 ## Installation
+
+- Prerequisities:
+  - python 3.10 installed
+- install with: 
 
 ```bash
 python3 -m pipenv sync
@@ -33,3 +37,7 @@ python3 -m pipenv sync
 - the script looks for the keywords in the document to replace them with the values as defined in the config
 - if the document uses tables, then the content inside can't be retrieved directly using `Document.paragraphs` but `Document.tables` and then the paragraphs. Note that every time formatting is changed (eveny inside one user-defined paragraph or one uninterrupted sentence), a new XML paragraph is created. 
 - new, modified, document is saved with the preposition `modified_`
+
+## Resources
+
+- Documentation of `python-docx` module: https://python-docx.readthedocs.io/en/latest/ 
