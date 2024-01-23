@@ -39,8 +39,13 @@ def print_rows(doc, table_number: int):
         print(row.cells[0].text)
 
 
-def check_keyword(config_data: dict, keyword: str):
-    pass
+def check_keyword(config_data: dict, key: str) -> int:
+    for obj, properties in config_data.items():
+        for obj_property in properties:
+            if key == config_data[obj][obj_property]["keyword"]:
+                value = config_data[obj][obj_property]["value"]
+                return value
+    return -1
 
 
 def replace_keywords(doc, config_data: dict, mode="table"):
@@ -51,14 +56,6 @@ def replace_keywords(doc, config_data: dict, mode="table"):
         # Look up each data keyword to be changed in the document (see config.json)
         # "obj": {"property1": {"keyword": KEY, "value": VALUE}, "property2": ...}
         # Example object: "main_tenant": {"firstname": {"keyword": "FIRSTNAME_MAIN_TENANT","value": "Max"}
-        keywords = []
-        values = []
-
-        for obj, properties in config_data.items():
-            for obj_property in properties:
-                keyword = config_data[obj][obj_property]["keyword"]
-                value = config_data[obj][obj_property]["value"]
-                print(f"Looking for {keyword}: {value}")
 
         # Look in each table
         for table in doc.tables:
@@ -67,10 +64,11 @@ def replace_keywords(doc, config_data: dict, mode="table"):
                     # Each cell can have multiple paragraphs with different formatting
                     # In order not to overwrite formatting, edit the paragraphs, not entire cell
                     for cell_paragraph in cell.paragraphs:
-                        if key in cell_paragraph.text:
-                            cell_paragraph.text = cell_paragraph.text.replace(
-                                key, str(value)
-                            )
+                        print(cell_paragraph.text)
+                        # if key in cell_paragraph.text:
+                            # cell_paragraph.text = cell_paragraph.text.replace(
+                                # key, str(value)
+                            # )
     else:
         raise AttributeError("Unsopported operation mode for keyword search")
 

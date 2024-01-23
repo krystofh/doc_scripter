@@ -27,11 +27,11 @@
     },
     "flatmate": {
         "firstname": {
-            "keyword": "FIRSTNAME",
+            "keyword": "FIRSTNAME_FLATMATE",
             "value": "Lisa"
         },
         "lastname": {
-            "keyword": "Mustermann",
+            "keyword": "LASTNAME_FLATMATE",
             "value": "Musterfrau"
         },
         "move_in_date": {

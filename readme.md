@@ -16,6 +16,8 @@ The provided example `confirm_flatmate.py` serves the purpose of generating "*Wo
 python3 -m pipenv sync
 ```
 
+- alternativelly, install the package `python-docx` directly with: `python3 -m pip install python-docx`
+
 ## Usage
 
 - edit the configuration in `config.json` for your purpose
