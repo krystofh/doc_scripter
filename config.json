@@ -31,7 +31,7 @@
             "value": "Lisa"
         },
         "lastname": {
-            "keyword": "LASTNAME_FLATMATE",
+            "keyword": "SURNAME_FLATMATE",
             "value": "Musterfrau"
         },
         "move_in_date": {

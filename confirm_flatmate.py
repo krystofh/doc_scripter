@@ -42,11 +42,19 @@ def print_rows(doc, table_number: int):
 def check_keyword(config_data: dict, key: str) -> int:
     for obj, properties in config_data.items():
         for obj_property in properties:
-            if key == config_data[obj][obj_property]["keyword"]:
+            if config_data[obj][obj_property]["keyword"] in key: # handle cases when token like 'SURNAME,' or 'ADDRESS:'
                 value = config_data[obj][obj_property]["value"]
                 return value
-    return -1
+    return ''
 
+def process_paragraph(text: str, config_data: dict):
+    tokens = text.split(' ')
+    for i, token in enumerate(tokens):
+        new_token = check_keyword(config_data, token)  # check if token is a keyword and if so, replace it
+        if new_token != '':
+            print(f"Replacing {token} with: {new_token}")
+            tokens[i] = new_token
+    return ' '.join(tokens) # return entire, joined, paragraph
 
 def replace_keywords(doc, config_data: dict, mode="table"):
     if mode == "paragraph":
@@ -64,11 +72,9 @@ def replace_keywords(doc, config_data: dict, mode="table"):
                     # Each cell can have multiple paragraphs with different formatting
                     # In order not to overwrite formatting, edit the paragraphs, not entire cell
                     for cell_paragraph in cell.paragraphs:
-                        print(cell_paragraph.text)
-                        # if key in cell_paragraph.text:
-                            # cell_paragraph.text = cell_paragraph.text.replace(
-                                # key, str(value)
-                            # )
+                        new_text = process_paragraph(cell_paragraph.text, config_data)
+                        cell_paragraph.text = new_text # rewrite the text
+                        
     else:
         raise AttributeError("Unsopported operation mode for keyword search")
 
